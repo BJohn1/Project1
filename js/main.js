@@ -65,14 +65,21 @@ let score2
 let count = 0
 
 //card images from 'http://acbl.mybigcommerce.com/52-playing-cards/'//
-init()
+function render(){
+    document.querySelector('#card1').setAttribute('src',p1[0].image)
+    document.querySelector('#card2').setAttribute('src',p2[1].image)
+}
+
 function init(){
     winner=false
     p1=[]
     p2=[]
     createDeck()
+    play()
     render()
 }
+
+init()
 
 function createDeck(){
 for(i=0;i<suits.length;i++){
@@ -87,11 +94,6 @@ for(k=0;k<52;k++){
     deck[k].image=images[k]
 } 
 }
-
-function render(){
-    
-}
-
 
 
 function play(){
