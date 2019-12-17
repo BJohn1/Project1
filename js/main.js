@@ -65,33 +65,45 @@ function compare(){
     }
     else if(v1.value===v2.value){
         console.log('its a tie! prepare for war!')
-        war()
+        if((p1.length-4)<0){
+            winner=true;
+            console.log('p2 wins!')
+        }
+        else if((p2.length-4)<0){
+            winner=true;
+            console.log('p1 wins!')
+        }
+        else{
+            war(1)
+        }
     }  
 } 
 }
 
-function war(){
+function war(z){
     play()
     let w1=p1[Math.floor((Math.random() * p1.length))][0]
     let w2=p2[Math.floor((Math.random() * p2.length))][0]
     console.log("player 1:"+w1.value+" and player 2:"+w2.value)
     if((p1.length-4)<0){
+        winner=true;
         console.log('p2 wins!')
     }
     else if((p2.length-4)<0){
+        winner=true;
         console.log('p1 wins!')
     }
     else if(w1.value>w2.value){
-        score1+=4
-        score2-=4
+        score1+=(4*z)
+        score2-=(4*z)
         for(i=0;i<4;i++){
             p1.push(p2.pop())
         }
         console.log('p1 wins. p1 score: '+score1+ ' p2 score: '+score2)
     }
     else if(w1.value<w2.value){
-        score2+=4
-        score1-=4
+        score2+=(4*z)
+        score1-=(4*z)
         for(i=0;i<4;i++){
             p2.push(p1.pop())
         }
@@ -99,7 +111,7 @@ function war(){
     }
     else if(w1.value===w2.value){
         console.log('its a tie! prepare for war!')
-        war()
+        war((z+1))
     } 
 }
 
