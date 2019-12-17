@@ -1,19 +1,80 @@
 const deck = new Array();
-let winner=false;
-let Ace = 14
-let King = 13
-let Queen = 12
-let Jack = 11
-let p1= []
-let p2= []
+const Ace = 14
+const King = 13
+const Queen = 12
+const Jack = 11
+const suits = ["Clubs", "Diamonds", "Hearts", "Spades"]
+const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, Ace, Jack, King, Queen]
+const images=["./media/JPEG/Clubs2.jpg",
+    "./media/JPEG/Clubs3.jpg",
+    "./media/JPEG/Clubs4.jpg",
+    "./media/JPEG/Clubs5.jpg",
+    "./media/JPEG/Clubs6.jpg",
+    "./media/JPEG/Clubs7.jpg",
+    "./media/JPEG/Clubs8.jpg",
+    "./media/JPEG/Clubs9.jpg",
+    "./media/JPEG/Clubs10.jpg",
+    "./media/JPEG/ClubsAce.jpg",
+    "./media/JPEG/ClubsJack.jpg",
+    "./media/JPEG/ClubsKing.jpg",
+    "./media/JPEG/ClubsQueen.jpg",
+    "./media/JPEG/Diamonds2.jpg",
+    "./media/JPEG/Diamonds3.jpg",
+    "./media/JPEG/Diamonds4.jpg",
+    "./media/JPEG/Diamonds5.jpg",
+    "./media/JPEG/Diamonds6.jpg",
+    "./media/JPEG/Diamonds7.jpg",
+    "./media/JPEG/Diamonds8.jpg",
+    "./media/JPEG/Diamonds9.jpg",
+    "./media/JPEG/Diamonds10.jpg",
+    "./media/JPEG/DiamondsAce.jpg",
+    "./media/JPEG/DiamondsJack.jpg",
+    "./media/JPEG/DiamondsKing.jpg",
+    "./media/JPEG/DiamondsQueen.jpg",
+    "./media/JPEG/Hearts2.jpg",
+    "./media/JPEG/Hearts3.jpg",
+    "./media/JPEG/Hearts4.jpg",
+    "./media/JPEG/Hearts5.jpg",
+    "./media/JPEG/Hearts6.jpg",
+    "./media/JPEG/Hearts7.jpg",
+    "./media/JPEG/Hearts8.jpg",
+    "./media/JPEG/Hearts9.jpg",
+    "./media/JPEG/Hearts10.jpg",
+    "./media/JPEG/HeartsAce.jpg",
+    "./media/JPEG/HeartsJack.jpg",
+    "./media/JPEG/HeartsKing.jpg",
+    "./media/JPEG/HeartsQueen.jpg",
+    "./media/JPEG/Spades2.jpg",
+    "./media/JPEG/Spades3.jpg",
+    "./media/JPEG/Spades4.jpg",
+    "./media/JPEG/Spades5.jpg",
+    "./media/JPEG/Spades6.jpg",
+    "./media/JPEG/Spades7.jpg",
+    "./media/JPEG/Spades8.jpg",
+    "./media/JPEG/Spades9.jpg",
+    "./media/JPEG/Spades10.jpg",
+    "./media/JPEG/SpadesAce.jpg",
+    "./media/JPEG/SpadesJack.jpg",
+    "./media/JPEG/SpadesKing.jpg",
+    "./media/JPEG/SpadesQueen.jpg"]
+let winner
+let p1
+let p2
 let score1
 let score2
 let count = 0
-const suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
-const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, Ace, Jack, King, Queen];
- 
-//card images from 'http://acbl.mybigcommerce.com/52-playing-cards/'//
 
+//card images from 'http://acbl.mybigcommerce.com/52-playing-cards/'//
+init()
+function init(){
+    winner=false
+    p1=[]
+    p2=[]
+    createDeck()
+    render()
+}
+
+function createDeck(){
 for(i=0;i<suits.length;i++){
     for(j=0;j<values.length;j++){
         let card={}
@@ -22,19 +83,24 @@ for(i=0;i<suits.length;i++){
         deck.push(card)
     }
 }
+for(k=0;k<52;k++){
+    deck[k].image=images[k]
+} 
+}
 
-
-
+function render(){
+    
+}
 
 
 
 function play(){
     let num=deck.length/2
      for(i=0;i<num;i++){
-         p1.push(deck.splice(Math.floor((Math.random() * deck.length)),1))
+         p1.push(deck.splice(Math.floor((Math.random() * deck.length)),1)[0])
      }
      for(j=0;j<num;j++){
-         p2.push(deck.splice(Math.floor((Math.random() * deck.length)),1))
+         p2.push(deck.splice(Math.floor((Math.random() * deck.length)),1)[0])
      }
      score1=p1.length
      score2=p2.length
@@ -48,8 +114,8 @@ function compare(){
     if(p1.length===0 || p2.length===0){
         winner=true;
     }else{
-    let v1=p1[Math.floor((Math.random() * p1.length))][0]
-    let v2=p2[Math.floor((Math.random() * p2.length))][0]
+    let v1=p1[Math.floor((Math.random() * p1.length))]
+    let v2=p2[Math.floor((Math.random() * p2.length))]
     console.log("player 1:"+v1.value+" and player 2:"+v2.value)
     if(v1.value>v2.value){
         score1+=1
@@ -81,22 +147,22 @@ function compare(){
 }
 
 function war(z){
-    play()
-    let w1=p1[Math.floor((Math.random() * p1.length))][0]
-    let w2=p2[Math.floor((Math.random() * p2.length))][0]
+    //play()
+    let w1=p1[Math.floor((Math.random() * p1.length))]
+    let w2=p2[Math.floor((Math.random() * p2.length))]
     console.log("player 1:"+w1.value+" and player 2:"+w2.value)
     if((p1.length-4)<0){
         winner=true;
-        console.log('p2 wins!')
+        console.log('not enough cards p1. p2 wins!')
     }
     else if((p2.length-4)<0){
         winner=true;
-        console.log('p1 wins!')
+        console.log('not enough cards p2. p1 wins!')
     }
     else if(w1.value>w2.value){
         score1+=(4*z)
         score2-=(4*z)
-        for(i=0;i<4;i++){
+        for(i=0;i<(4*z);i++){
             p1.push(p2.pop())
         }
         console.log('p1 wins. p1 score: '+score1+ ' p2 score: '+score2)
@@ -104,13 +170,13 @@ function war(z){
     else if(w1.value<w2.value){
         score2+=(4*z)
         score1-=(4*z)
-        for(i=0;i<4;i++){
+        for(i=0;i<(4*z);i++){
             p2.push(p1.pop())
         }
         console.log('p2 wins. p1 score: '+score1+ ' p2 score: '+score2)
     }
     else if(w1.value===w2.value){
-        console.log('its a tie! prepare for war!')
+        console.log('another tie! prepare for war!')
         war((z+1))
     } 
 }
