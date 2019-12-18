@@ -35,12 +35,17 @@ img{
 }
 
 header{
+    position: absolute;
     font-family: 'Bowlby One SC', cursive;
     font-size: xx-large;
 }
 
 #draw{
     background-image: url("https://i.giphy.com/media/aqDXCH2M1ycEw/giphy.webp");
+    font-family: 'Bowlby One SC', cursive;
+    font-weight: bold;
+    color: honeydew;
+    font-size: 55px;
     height: 259px;
     width: 500px;
     position: absolute;
