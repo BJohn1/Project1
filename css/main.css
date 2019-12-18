@@ -4,6 +4,11 @@ html{
     background-position: center; 
     object-fit: cover;
     text-align: center; 
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
 }
 
 img{
@@ -62,4 +67,30 @@ header{
     60%{    color: yellow; }
     80%{    color:green;  }
     100%{   color: blue;    }
+}
+
+.title{
+    font-family: 'Bowlby One SC', cursive;
+    text-decoration: underline;
+    color: white;
+}
+
+.score1{
+    position: absolute;
+    font-family: 'Bowlby One SC', cursive;
+    right: 78%;
+    bottom: 20%;
+    font-size: x-large;
+    background-color: white;
+    color: rgb(164, 221, 240);
+}
+
+.score2{
+    position: absolute;
+    font-family: 'Bowlby One SC', cursive;
+    left: 78%;
+    bottom: 20%;
+    font-size: x-large;
+    background-color: white;
+    color: red;
 }

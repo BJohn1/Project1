@@ -67,7 +67,13 @@ let stache2
 let count = 0
 
 //card images from 'http://acbl.mybigcommerce.com/52-playing-cards/'//
+function renderScore(){
+    document.querySelector('.score1').innerText="Score:"+score1
+    document.querySelector('.score2').innerText="Score:"+score2
+}
+
 function render(x,y){
+    renderScore()
     document.querySelector('#card1').setAttribute('src',x)
     document.querySelector('#card2').setAttribute('src',y)
 }
