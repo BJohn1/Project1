@@ -2,6 +2,59 @@ html{
     background-image: url('https://garden.spoonflower.com/c/8010491/p/f/d-i-21/qhL9ajmKJZXb660DEC25t1ZwelnFbr-rsHiPjYD7neHACrXEjQo/8010491-playing-card-suits-on-green-felt-casino-by-fabric_is_my_name.jpg');
     background-attachment: fixed;
     background-position: center; 
-    border-bottom: red;
-    text-align: center;
+    object-fit: cover;
+    text-align: center; 
+}
+
+img{
+    border-radius: 7%;
+}
+
+#card1{
+    position: absolute; /* or absolute */
+    right: 70%;
+    bottom: 25%
+}
+
+#card2{
+    position: absolute; /* or absolute */
+    left: 70%;
+    bottom: 25%;
+}
+
+#title1{
+    position: absolute; /* or absolute */
+    right: 76%; 
+    bottom: 90%; 
+}
+
+#title2{
+    position: absolute; /* or absolute */
+    left: 76%;
+    bottom: 90%;
+}
+
+header{
+    font-family: 'Bowlby One SC', cursive;
+    font-size: xx-large;
+}
+
+#draw{
+    background-image: url("https://i.giphy.com/media/aqDXCH2M1ycEw/giphy.webp");
+    height: 259px;
+    width: 500px;
+    position: absolute;
+    top: 30%;
+    right: 33%
+}
+
+.blinking{
+    animation:blinkingText 0.8s infinite;
+}
+@keyframes blinkingText{
+    20%{     color:red;    }
+    40%{    color: orange; }
+    60%{    color: yellow; }
+    80%{    color:green;  }
+    100%{   color: blue;    }
 }

@@ -62,21 +62,25 @@ let p1
 let p2
 let score1
 let score2
+let stache1
+let stache2
 let count = 0
 
 //card images from 'http://acbl.mybigcommerce.com/52-playing-cards/'//
-function render(){
-    document.querySelector('#card1').setAttribute('src',p1[0].image)
-    document.querySelector('#card2').setAttribute('src',p2[1].image)
+function render(x,y){
+    document.querySelector('#card1').setAttribute('src',x)
+    document.querySelector('#card2').setAttribute('src',y)
 }
 
 function init(){
     winner=false
     p1=[]
     p2=[]
+    stache1=[]
+    stache2=[]
     createDeck()
-    play()
-    render()
+    shuffle()
+    render("./media/JPEG/zmiscellaneous card image/blue_back.jpg","./media/JPEG/zmiscellaneous card image/Red_back.jpg")
 }
 
 init()
@@ -96,7 +100,7 @@ for(k=0;k<52;k++){
 }
 
 
-function play(){
+function shuffle(){
     let num=deck.length/2
      for(i=0;i<num;i++){
          p1.push(deck.splice(Math.floor((Math.random() * deck.length)),1)[0])
@@ -112,36 +116,40 @@ function play(){
 
 
 function compare(){
-    play()
+    //shuffle()
     if(p1.length===0 || p2.length===0){
         winner=true;
     }else{
-    let v1=p1[Math.floor((Math.random() * p1.length))]
-    let v2=p2[Math.floor((Math.random() * p2.length))]
+    let v1=p1[p1.length-1]
+    let v2=p2[p2.length-1]
+    render(v1.image,v2.image)
     console.log("player 1:"+v1.value+" and player 2:"+v2.value)
     if(v1.value>v2.value){
         score1+=1
         score2-=1
-        p1.push(p2.pop())
+        p1.unshift(p2.pop())
+        p1.unshift(p1.pop())
         console.log('p1 wins. p1 score: '+score1+ ' p2 score: '+score2)
     }
     else if(v1.value<v2.value){
         score2+=1
         score1-=1
-        p2.push(p1.pop())
+        p2.unshift(p1.pop())
+        p2.unshift(p2.pop())
         console.log('p2 wins. p1 score: '+score1+ ' p2 score: '+score2)
     }
     else if(v1.value===v2.value){
         console.log('its a tie! prepare for war!')
         if((p1.length-4)<0){
             winner=true;
-            console.log('p2 wins!')
+            console.log('not enough cards p1. p2 wins!')
         }
         else if((p2.length-4)<0){
             winner=true;
-            console.log('p1 wins!')
+            console.log('not enough cards p2. p1 wins!')
         }
         else{
+            render(v1.image,v2.image)
             war(1)
         }
     }  
@@ -149,9 +157,10 @@ function compare(){
 }
 
 function war(z){
-    //play()
-    let w1=p1[Math.floor((Math.random() * p1.length))]
-    let w2=p2[Math.floor((Math.random() * p2.length))]
+    //shuffle()
+    let w1=p1[p1.length-(4*z)]
+    let w2=p2[p2.length-(4*z)]
+    render(w1.image,w2.image)
     console.log("player 1:"+w1.value+" and player 2:"+w2.value)
     if((p1.length-4)<0){
         winner=true;
@@ -165,7 +174,8 @@ function war(z){
         score1+=(4*z)
         score2-=(4*z)
         for(i=0;i<(4*z);i++){
-            p1.push(p2.pop())
+            p1.unshift(p2.pop())
+            p1.unshift(p1.pop())
         }
         console.log('p1 wins. p1 score: '+score1+ ' p2 score: '+score2)
     }
@@ -173,12 +183,14 @@ function war(z){
         score2+=(4*z)
         score1-=(4*z)
         for(i=0;i<(4*z);i++){
-            p2.push(p1.pop())
+            p2.unshift(p1.pop())
+            p2.unshift(p2.pop())
         }
         console.log('p2 wins. p1 score: '+score1+ ' p2 score: '+score2)
     }
     else if(w1.value===w2.value){
         console.log('another tie! prepare for war!')
+        render(w1.image,w2.image)
         war((z+1))
     } 
 }
