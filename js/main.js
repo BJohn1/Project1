@@ -68,14 +68,16 @@ let count = 0
 
 //card images from 'http://acbl.mybigcommerce.com/52-playing-cards/'//
 function renderScore(){
-    document.querySelector('.score1').innerText="Score:"+score1
-    document.querySelector('.score2').innerText="Score:"+score2
+    document.querySelector('.score1').innerText="Deck Size:"+score1
+    document.querySelector('.score2').innerText="Deck Size:"+score2
 }
 
 function render(x,y){
-    renderScore()
     document.querySelector('#card1').setAttribute('src',x)
+    setTimeout(function() {
     document.querySelector('#card2').setAttribute('src',y)
+    }, 200);
+    renderScore()
 }
 
 function init(){
@@ -128,11 +130,11 @@ function compare(){
     }else{
     let v1=p1[p1.length-1]
     let v2=p2[p2.length-1]
-    render(v1.image,v2.image)
     console.log("player 1:"+v1.value+" and player 2:"+v2.value)
     if(v1.value>v2.value){
         score1+=1
         score2-=1
+        render(v1.image,v2.image)
         p1.unshift(p2.pop())
         p1.unshift(p1.pop())
         console.log('p1 wins. p1 score: '+score1+ ' p2 score: '+score2)
@@ -140,41 +142,52 @@ function compare(){
     else if(v1.value<v2.value){
         score2+=1
         score1-=1
+        render(v1.image,v2.image)
         p2.unshift(p1.pop())
         p2.unshift(p2.pop())
         console.log('p2 wins. p1 score: '+score1+ ' p2 score: '+score2)
     }
     else if(v1.value===v2.value){
-        console.log('its a tie! prepare for war!')
+        score2+=0
+        score1-=0
+        render(v1.image,v2.image)
+        console.log('P1 card:'+v1.value+' | P2 Score'+v2.value+'---we have a tie! prepare for war!')
+        alert('P1 card:'+v1.value+' | P2 Score'+v2.value+'---its a tie! PREPARE FOR WAR!...WAIT FOR IT...')  
         if((p1.length-4)<0){
             winner=true;
             console.log('not enough cards p1. p2 wins!')
+            alert('not enough cards p1. p2 wins!')
         }
         else if((p2.length-4)<0){
             winner=true;
             console.log('not enough cards p2. p1 wins!')
+            alert('not enough cards p2. p1 wins!')
         }
         else{
             render(v1.image,v2.image)
-            war(1)
         }
+        setTimeout(function() {
+            war(1)
+        }, 1000);
     }  
 } 
 }
 
 function war(z){
-    //shuffle()
+    /* shuffle() */
     let w1=p1[p1.length-(4*z)]
     let w2=p2[p2.length-(4*z)]
-    render(w1.image,w2.image)
+    /* render(w1.image,w2.image) */
     console.log("player 1:"+w1.value+" and player 2:"+w2.value)
     if((p1.length-4)<0){
         winner=true;
         console.log('not enough cards p1. p2 wins!')
+        alert('P1 Ran out of Cards! WINNER: P2')
     }
     else if((p2.length-4)<0){
         winner=true;
         console.log('not enough cards p2. p1 wins!')
+        alert('P2 Ran out of Cards! WINNER: P1')
     }
     else if(w1.value>w2.value){
         score1+=(4*z)
@@ -183,7 +196,9 @@ function war(z){
             p1.unshift(p2.pop())
             p1.unshift(p1.pop())
         }
+        //render(w1.image,w2.image)
         console.log('p1 wins. p1 score: '+score1+ ' p2 score: '+score2)
+        alert('P1 Card:'+w1.value+' | P2 Card:'+w2.value+'---P1 won the war. ')
     }
     else if(w1.value<w2.value){
         score2+=(4*z)
@@ -192,12 +207,16 @@ function war(z){
             p2.unshift(p1.pop())
             p2.unshift(p2.pop())
         }
+        //render(w1.image,w2.image)
         console.log('p2 wins. p1 score: '+score1+ ' p2 score: '+score2)
+        alert('P2 Card:'+w2.value+' | P1 Card:'+w1.value+'---P2 won the war. ')
     }
     else if(w1.value===w2.value){
+        //render(w1.image,w2.image)
         console.log('another tie! prepare for war!')
-        render(w1.image,w2.image)
+        alert('P2 Card:'+w2.value+' | P1 Card:'+w1.value+'---ANOTHER WAR') 
         war((z+1))
     } 
+    render(w1.image,w2.image)
 }
 
