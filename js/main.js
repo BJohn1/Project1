@@ -131,7 +131,7 @@ function compare(){
     //shuffle()
     if(p1.length===0 || p2.length===0){
         winner=true;
-        if(p1.length===0){
+        if(p2.length===0){
             alert('PLAYER 1 WINS')
         }
         else alert('COMPUTER WINS')
