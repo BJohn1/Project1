@@ -18,25 +18,25 @@ img {
 #card1 {
   position: relative; /* or absolute */
   /* right: 70%;
-  bottom: 25%; */
+        bottom: 25%; */
 }
 
 #card2 {
   position: relative; /* or absolute */
   /* left: 70%;
-  bottom: 25%; */
+        bottom: 25%; */
 }
 
 #title1 {
   position: relative; /* or absolute */
   /* right: 76%;
-  bottom: 90%; */
+        bottom: 90%; */
 }
 
 #title2 {
   position: relative; /* or absolute */
   /* left: 76%;
-  bottom: 90%; */
+        bottom: 90%; */
 }
 
 header {
@@ -53,10 +53,10 @@ header {
   color: honeydew;
   font-size: 55px;
   /* height: 259px;
-  width: 500px; */
+        width: 500px; */
   position: relative;
   /* top: 30%;
-  right: 33%; */
+        right: 33%; */
 }
 
 .blinking {
@@ -90,7 +90,7 @@ header {
   position: relative;
   font-family: "Bowlby One SC", cursive;
   /* right: 78%;
-  bottom: 20%; */
+        bottom: 20%; */
   font-size: x-large;
   background-color: white;
   color: rgb(94, 212, 233);
@@ -100,7 +100,7 @@ header {
   position: relative;
   font-family: "Bowlby One SC", cursive;
   /* left: 78%;
-  bottom: 20%; */
+        bottom: 20%; */
   font-size: x-large;
   background-color: white;
   color: red;
@@ -111,6 +111,35 @@ a {
   background-color: black;
 }
 
+#restart {
+  background-color: crimson;
+  color: rgb(9, 9, 73);
+}
+
 footer {
   position: relative;
+}
+
+@media screen and (min-width: 426px) {
+  .left {
+    position: absolute;
+    right: 50%;
+    top: 20%;
+    z-index: -1;
+  }
+
+  .right {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    z-index: -1;
+  }
+
+  #draw{
+      z-index: 2;
+  }
+
+  #restart{
+      z-index: 20;
+  }
 }
