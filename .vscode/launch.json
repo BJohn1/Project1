@@ -8,7 +8,13 @@
             "name": "Launch index.html",
             "type": "chrome",
             "request": "launch",
-            "file": "${workspaceFolder}/index.html"
+            "file": "${workspaceFolder}/index.html",
+            // Set the default
+            "editor.formatOnSave": true,
+            // Enable per-language
+            "[javascript]": {
+            "editor.formatOnSave": true
+            }
         }
     ]
 }

@@ -1,101 +1,116 @@
-
-html{
-    background-image: url('https://garden.spoonflower.com/c/8010491/p/f/d-i-21/qhL9ajmKJZXb660DEC25t1ZwelnFbr-rsHiPjYD7neHACrXEjQo/8010491-playing-card-suits-on-green-felt-casino-by-fabric_is_my_name.jpg');
-    background-attachment: fixed;
-    background-position: center; 
-    object-fit: cover;
-    text-align: center; 
-    position:fixed;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
+html {
+  background-image: url("https://garden.spoonflower.com/c/8010491/p/f/d-i-21/qhL9ajmKJZXb660DEC25t1ZwelnFbr-rsHiPjYD7neHACrXEjQo/8010491-playing-card-suits-on-green-felt-casino-by-fabric_is_my_name.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  object-fit: cover;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-img{
-    border-radius: 7%;
+img {
+  border-radius: 7%;
 }
 
-#card1{
-    position: absolute; /* or absolute */
-    right: 70%;
-    bottom: 25%
+#card1 {
+  position: relative; /* or absolute */
+  /* right: 70%;
+  bottom: 25%; */
 }
 
-#card2{
-    position: absolute; /* or absolute */
-    left: 70%;
-    bottom: 25%;
+#card2 {
+  position: relative; /* or absolute */
+  /* left: 70%;
+  bottom: 25%; */
 }
 
-#title1{
-    position: absolute; /* or absolute */
-    right: 76%; 
-    bottom: 90%; 
+#title1 {
+  position: relative; /* or absolute */
+  /* right: 76%;
+  bottom: 90%; */
 }
 
-#title2{
-    position: absolute; /* or absolute */
-    left: 76%;
-    bottom: 90%;
+#title2 {
+  position: relative; /* or absolute */
+  /* left: 76%;
+  bottom: 90%; */
 }
 
-header{
-    position: absolute;
-    font-family: 'Bowlby One SC', cursive;
-    font-size: xx-large;
+header {
+  position: relative;
+  font-family: "Bowlby One SC", cursive;
+  font-size: xx-large;
 }
 
-#draw{
-    background-image: url("https://i.giphy.com/media/aqDXCH2M1ycEw/giphy.webp");
-    font-family: 'Bowlby One SC', cursive;
-    font-weight: bold;
-    color: honeydew;
-    font-size: 55px;
-    height: 259px;
-    width: 500px;
-    position: absolute;
-    top: 30%;
-    right: 33%
+#draw {
+  background-image: url("https://i.giphy.com/media/aqDXCH2M1ycEw/giphy.webp");
+  background-size: cover;
+  font-family: "Bowlby One SC", cursive;
+  font-weight: bold;
+  color: honeydew;
+  font-size: 55px;
+  /* height: 259px;
+  width: 500px; */
+  position: relative;
+  /* top: 30%;
+  right: 33%; */
 }
 
-.blinking{
-    animation:blinkingText 0.8s infinite;
+.blinking {
+  animation: blinkingText 0.8s infinite;
 }
-@keyframes blinkingText{
-    20%{     color:red;    }
-    40%{    color: orange; }
-    60%{    color: yellow; }
-    80%{    color:green;  }
-    100%{   color: blue;    }
-}
-
-.title{
-    font-family: 'Bowlby One SC', cursive;
-    text-decoration: underline;
-    color: white;
-}
-
-.score1{
-    position: absolute;
-    font-family: 'Bowlby One SC', cursive;
-    right: 78%;
-    bottom: 20%;
-    font-size: x-large;
-    background-color: white;
-    color: rgb(94, 212, 233);
-}
-
-.score2{
-    position: absolute;
-    font-family: 'Bowlby One SC', cursive;
-    left: 78%;
-    bottom: 20%;
-    font-size: x-large;
-    background-color: white;
+@keyframes blinkingText {
+  20% {
     color: red;
+  }
+  40% {
+    color: orange;
+  }
+  60% {
+    color: yellow;
+  }
+  80% {
+    color: green;
+  }
+  100% {
+    color: blue;
+  }
 }
 
-a{
-    color: royalblue;
+.title {
+  font-family: "Bowlby One SC", cursive;
+  text-decoration: underline;
+  color: white;
+}
+
+.score1 {
+  position: relative;
+  font-family: "Bowlby One SC", cursive;
+  /* right: 78%;
+  bottom: 20%; */
+  font-size: x-large;
+  background-color: white;
+  color: rgb(94, 212, 233);
+}
+
+.score2 {
+  position: relative;
+  font-family: "Bowlby One SC", cursive;
+  /* left: 78%;
+  bottom: 20%; */
+  font-size: x-large;
+  background-color: white;
+  color: red;
+}
+
+a {
+  color: rgb(255, 255, 255);
+  background-color: black;
+}
+
+footer {
+  position: relative;
 }

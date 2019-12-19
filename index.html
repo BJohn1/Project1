@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/main.css" />
     <script defer src="./js/main.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1 class="title">WAR CARD GAME</h1>
+    <h2><a href="./Project1rules/rules.html" target="_blank">Rules</a></h2>
+    <button id="restart" onclick="restart()">Restart</button>
     <h1>
-        <button id="draw" onclick="compare()">DRAW</button>
+      <button id="draw" onclick="compare()">DRAW</button>
     </h1>
 
-    <h1 class="title">WAR CARD GAME</h1>
-    <h2><a href="./Project1rules/rules.html" target="_blank">Rules</a></h2><h2><button id='restart' onclick="restart()">Restart</button></h2>
-
     <div class="left">
-        <header class="blinking" id='title1'>PLAYER 1</header>
-        <img id='card1' src="./media/JPEG/zmiscellaneous card image/red_back.jpg" alt="Mountain" height="528" width="345">
-        <score class="score1">b</score>
+      <header class="blinking" id="title1">PLAYER 1</header>
+      <img
+        id="card1"
+        src="./media/JPEG/zmiscellaneous card image/red_back.jpg"
+        alt="Mountain"
+        height="30%"
+        width="30%"
+      />
+      <div><score class="score1">b</score></div>
     </div>
 
     <div class="right">
-        <header class="blinking" id='title2'>COMPUTER</header>
-        <img id='card2' src="./media/JPEG/zmiscellaneous card image/blue_back.jpg" alt="Mountain" height="528" width="345">
-        <score class="score2">b</score>
+      <header class="blinking" id="title2">COMPUTER</header>
+      <img
+        id="card2"
+        src="./media/JPEG/zmiscellaneous card image/blue_back.jpg"
+        alt="Mountain"
+        height="30%"
+        width="30%"
+      />
+      <div id="score2"><score class="score2">b</score></div>
     </div>
+  </body>
 
-</body>
+  <footer></footer>
 </html>
