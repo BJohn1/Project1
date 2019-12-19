@@ -62,8 +62,6 @@ let p1
 let p2
 let score1
 let score2
-let stache1
-let stache2
 let count = 0
 
 //card images from 'http://acbl.mybigcommerce.com/52-playing-cards/'//
@@ -88,8 +86,6 @@ function init(){
     winner=false
     p1=[]
     p2=[]
-    stache1=[]
-    stache2=[]
     createDeck()
     shuffle()
     render("./media/JPEG/zmiscellaneous card image/blue_back.jpg","./media/JPEG/zmiscellaneous card image/Red_back.jpg")
