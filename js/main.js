@@ -67,6 +67,10 @@ let stache2
 let count = 0
 
 //card images from 'http://acbl.mybigcommerce.com/52-playing-cards/'//
+function restart(){
+    location.reload()
+}
+
 function renderScore(){
     document.querySelector('.score1').innerText="Deck Size:"+score1
     document.querySelector('.score2').innerText="Deck Size:"+score2
@@ -127,6 +131,10 @@ function compare(){
     //shuffle()
     if(p1.length===0 || p2.length===0){
         winner=true;
+        if(p1.length===0){
+            alert('PLAYER 1 WINS')
+        }
+        else alert('COMPUTER WINS')
     }else{
     let v1=p1[p1.length-1]
     let v2=p2[p2.length-1]
