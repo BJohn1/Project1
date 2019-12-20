@@ -118,6 +118,8 @@ a {
 
 footer {
   position: relative;
+  font-family: 'Permanent Marker', cursive;
+  color: white;
 }
 
 @media screen and (min-width: 426px) {

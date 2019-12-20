@@ -128,8 +128,8 @@ function compare() {
   if (p1.length === 0 || p2.length === 0) {
     winner = true;
     if (p2.length === 0) {
-        document.querySelector("footer").innerText ="PLAYER 1 WINS";
-    } else document.querySelector("footer").innerText ="COMPUTER WINS";
+        document.querySelector("footer").innerText ="GAME OVER: PLAYER 1 WINS";
+    } else document.querySelector("footer").innerText ="GAME OVER: COMPUTER WINS";
   } else {
     let v1 = p1[p1.length - 1];
     let v2 = p2[p2.length - 1];
@@ -141,7 +141,7 @@ function compare() {
       p1.unshift(p2.pop());
       p1.unshift(p1.pop());
       console.log("p1 wins. p1 score: " + score1 + " p2 score: " + score2);
-      document.querySelector("footer").innerText ="p1 wins. p1 score: " + score1 + " p2 score: " + score2;
+      document.querySelector("footer").innerText ="THIS ROUND GOES TO P1";
     } else if (v1.value < v2.value) {
       score2 += 1;
       score1 -= 1;
@@ -149,81 +149,69 @@ function compare() {
       p2.unshift(p1.pop());
       p2.unshift(p2.pop());
       console.log("p2 wins. p1 score: " + score1 + " p2 score: " + score2);
-      document.querySelector("footer").innerText ="p2 wins. p1 score: " + score1 + " p2 score: " + score2;
+      document.querySelector("footer").innerText ="THIS ROUND GOES TO THE COMPUTER";
     } else if (v1.value === v2.value) {
       score2 += 0;
       score1 -= 0;
       render(v1.image, v2.image);
-      document.querySelector("footer").innerText =
-        "P1 card:" +
-          v1.value +
-          " | P2 Score" +
-          v2.value +
-          "---we have a tie! prepare for war!"
-      ;
-      document.querySelector("footer").innerText =
-        "P1 card:" +
-          v1.value +
-          " | P2 Score" +
-          v2.value +
-          "---its a tie! PREPARE FOR WAR!...WAIT FOR IT..."
-      ;
+      console.log("P1 card:" +v1.value +" | P2 card:" +v2.value+"---we have a tie! prepare for war!");
+      document.querySelector("footer").innerText = "WE HAVE A TIE! PREPARE FOR WAR!...WAIT FOR IT...";
       if (p1.length - 4 < 0) {
         winner = true;
         console.log("not enough cards p1. p2 wins!");
-        document.querySelector("footer").innerText ="not enough cards p1. p2 wins!";
+        document.querySelector("footer").innerText ="P1 Ran out of Cards! WINNER: COMPUTER";
       } else if (p2.length - 4 < 0) {
         winner = true;
         console.log("not enough cards p2. p1 wins!");
-        document.querySelector("footer").innerText ="not enough cards p2. p1 wins!";
+        document.querySelector("footer").innerText ="P2 Ran out of Cards! WINNER: PLAYER 1";
       } else {
         render(v1.image, v2.image);
       }
       setTimeout(function() {
         war(1);
-      }, 1000);
+      }, 2000);
     }
   }
 }
 
 function war(z) {
   /* shuffle() */
-  let w1 = p1[p1.length - 4 * z];
-  let w2 = p2[p2.length - 4 * z];
+  let w1 = p1[p1.length - (4 * z)];
+  let w2 = p2[p2.length - (4 * z)];
   /* render(w1.image,w2.image) */
   console.log("player 1:" + w1.value + " and player 2:" + w2.value);
   if (p1.length - 4 < 0) {
     winner = true;
     console.log("not enough cards p1. p2 wins!");
-    document.querySelector("footer").innerText = "P1 Ran out of Cards! WINNER: P2";
+    document.querySelector("footer").innerText = "P1 Ran out of Cards! WINNER: COMPUTER";
   } else if (p2.length - 4 < 0) {
     winner = true;
     console.log("not enough cards p2. p1 wins!");
-    document.querySelector("footer").innerText = "P2 Ran out of Cards! WINNER: P1";
+    document.querySelector("footer").innerText = "P2 Ran out of Cards! WINNER: PLAYER 1";
   } else if (w1.value > w2.value) {
-    score1 += 4 * z;
-    score2 -= 4 * z;
-    for (i = 0; i < 4 * z; i++) {
+    score1 += (4 * z);
+    score2 -= (4 * z);
+    for (i = 0; i < (4 * z); i++) {
       p1.unshift(p2.pop());
       p1.unshift(p1.pop());
     }
     //render(w1.image,w2.image)
     console.log("p1 wins. p1 score: " + score1 + " p2 score: " + score2);
-    document.querySelector("footer").innerText = "P1 Card:" + w1.value + " | P2 Card:" + w2.value + "---P1 won the war. ";
+    document.querySelector("footer").innerText = "PLAYER 1 WON THE WAR.";
   } else if (w1.value < w2.value) {
-    score2 += 4 * z;
-    score1 -= 4 * z;
-    for (i = 0; i < 4 * z; i++) {
+    score2 += (4 * z);
+    score1 -= (4 * z);
+    for (i = 0; i < (4 * z); i++) {
       p2.unshift(p1.pop());
       p2.unshift(p2.pop());
     }
     //render(w1.image,w2.image)
     console.log("p2 wins. p1 score: " + score1 + " p2 score: " + score2);
-    document.querySelector("footer").innerText = "P2 Card:" + w2.value + " | P1 Card:" + w1.value + "---P2 won the war. ";
+    document.querySelector("footer").innerText = "COMPUTER WON THE WAR.";
   } else if (w1.value === w2.value) {
     render(w1.image, w2.image);
     console.log("another tie! prepare for war!");
-    document.querySelector("footer").innerText ="P2 Card:" + w2.value + " | P1 Card:" + w1.value + "---ANOTHER WAR";
+    document.querySelector("footer").innerText ="ANOTHER WAR";
     war((z+1));
   }
   render(w1.image, w2.image);
