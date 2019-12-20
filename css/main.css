@@ -51,7 +51,7 @@ header {
   font-family: "Bowlby One SC", cursive;
   font-weight: bold;
   color: honeydew;
-  font-size: 55px;
+  font-size: 25px;
   /* height: 259px;
         width: 500px; */
   position: relative;
@@ -139,6 +139,7 @@ footer {
 
   #draw{
       z-index: 2;
+      font-size: 55px;
   }
 
   #restart{
