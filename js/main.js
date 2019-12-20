@@ -64,7 +64,6 @@ let p1;
 let p2;
 let score1;
 let score2;
-let count = 0;
 
 function restart() {
   location.reload();
@@ -124,7 +123,6 @@ function shuffle() {
 }
 
 function compare() {
-  //shuffle()
   if (p1.length === 0 || p2.length === 0) {
     winner = true;
     if (p2.length === 0) {
@@ -175,10 +173,8 @@ function compare() {
 }
 
 function war(z) {
-  /* shuffle() */
   let w1 = p1[p1.length - (4 * z)];
   let w2 = p2[p2.length - (4 * z)];
-  /* render(w1.image,w2.image) */
   console.log("player 1:" + w1.value + " and player 2:" + w2.value);
   if (p1.length - 4 < 0) {
     winner = true;
@@ -195,7 +191,6 @@ function war(z) {
       p1.unshift(p2.pop());
       p1.unshift(p1.pop());
     }
-    //render(w1.image,w2.image)
     console.log("p1 wins. p1 score: " + score1 + " p2 score: " + score2);
     document.querySelector("footer").innerText = "PLAYER 1 WON THE WAR.";
   } else if (w1.value < w2.value) {
@@ -205,7 +200,6 @@ function war(z) {
       p2.unshift(p1.pop());
       p2.unshift(p2.pop());
     }
-    //render(w1.image,w2.image)
     console.log("p2 wins. p1 score: " + score1 + " p2 score: " + score2);
     document.querySelector("footer").innerText = "COMPUTER WON THE WAR.";
   } else if (w1.value === w2.value) {
@@ -217,4 +211,4 @@ function war(z) {
   render(w1.image, w2.image);
 }
 
-//card images from 'http://acbl.mybigcommerce.com/52-playing-cards/'//
+

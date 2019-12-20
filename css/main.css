@@ -16,27 +16,19 @@ img {
 }
 
 #card1 {
-  position: relative; /* or absolute */
-  /* right: 70%;
-        bottom: 25%; */
+  position: relative; 
 }
 
 #card2 {
-  position: relative; /* or absolute */
-  /* left: 70%;
-        bottom: 25%; */
+  position: relative; 
 }
 
 #title1 {
-  position: relative; /* or absolute */
-  /* right: 76%;
-        bottom: 90%; */
+  position: relative; 
 }
 
 #title2 {
-  position: relative; /* or absolute */
-  /* left: 76%;
-        bottom: 90%; */
+  position: relative; 
 }
 
 header {
@@ -52,11 +44,7 @@ header {
   font-weight: bold;
   color: honeydew;
   font-size: 25px;
-  /* height: 259px;
-        width: 500px; */
   position: relative;
-  /* top: 30%;
-        right: 33%; */
 }
 
 .blinking {
@@ -89,8 +77,6 @@ header {
 .score1 {
   position: relative;
   font-family: "Bowlby One SC", cursive;
-  /* right: 78%;
-        bottom: 20%; */
   font-size: x-large;
   background-color: white;
   color: rgb(94, 212, 233);
@@ -99,8 +85,6 @@ header {
 .score2 {
   position: relative;
   font-family: "Bowlby One SC", cursive;
-  /* left: 78%;
-        bottom: 20%; */
   font-size: x-large;
   background-color: white;
   color: red;
