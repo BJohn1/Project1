@@ -1,0 +1,1 @@
+SCREENSHOTS: ![MOBILE RENDERING](media/JPEG/zmiscellaneous card image/Screen Shot 2019-12-19 at 4.48.33 PM.png)
